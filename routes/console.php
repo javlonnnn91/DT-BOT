@@ -24,5 +24,5 @@ Artisan::command('inspire', function () {
 Artisan::command('tester', function () {
 
     $chat = TelegraphChat::find(2);
-    dd($chat->message('sadasdsad'));
+    dd($chat->info());
 });
