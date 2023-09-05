@@ -1,5 +1,6 @@
 <?php
 
+use DefStudio\Telegraph\Keyboard\ReplyButton;
 use DefStudio\Telegraph\Keyboard\ReplyKeyboard;
 use DefStudio\Telegraph\Models\TelegraphBot;
 use DefStudio\Telegraph\Telegraph;
@@ -23,6 +24,8 @@ Artisan::command('inspire', function () {
 
 Artisan::command('tester', function () {
 
-    $chat = TelegraphChat::find(2);
-    dd($chat->info());
+    $chat = TelegraphChat::find(1);
+    $bot = TelegraphBot::find(2);
+
+    dd($bot->registerWebhook()->send());
 });
