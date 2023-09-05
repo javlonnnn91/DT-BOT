@@ -4,6 +4,8 @@ namespace App\Telegram;
 
 use DefStudio\Telegraph\Facades\Telegraph;
 use DefStudio\Telegraph\Handlers\WebhookHandler;
+use DefStudio\Telegraph\Keyboard\Button;
+use DefStudio\Telegraph\Keyboard\Keyboard;
 use DefStudio\Telegraph\Keyboard\ReplyButton;
 use DefStudio\Telegraph\Keyboard\ReplyKeyboard;
 use Illuminate\Support\Facades\Log;
@@ -29,6 +31,11 @@ class Handler extends WebhookHandler
     public function start(): void
     {
 
-        $this->reply('gagagagaag start');
+        Telegraph::message('hello world')
+            ->keyboard(Keyboard::make()->buttons([
+                Button::make("🗑️ Delete"),
+                Button::make("📖 Mark as Read"),
+                Button::make("👀 Open"),
+            ])->chunk(2))->send();
     }
 }
