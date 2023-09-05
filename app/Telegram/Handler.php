@@ -13,7 +13,6 @@ class Handler extends WebhookHandler
 {
     public function hello(): void
     {
-        Log::info(json_encode($this->message->toArray(), JSON_UNESCAPED_UNICODE));
         $this->reply('gagagagaag');
     }
 
@@ -24,6 +23,7 @@ class Handler extends WebhookHandler
 
     protected function handleChatMessage(Stringable $text): void
     {
+        Log::info(json_encode($this->message->toArray(), JSON_UNESCAPED_UNICODE));
         $this->reply($text);
     }
 
