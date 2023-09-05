@@ -28,14 +28,9 @@ class Handler extends WebhookHandler
         $this->reply($text);
     }
 
-    public function start(): void
+    public function actions(): void
     {
 
-        Telegraph::message('hello world')
-            ->keyboard(Keyboard::make()->buttons([
-                Button::make("🗑️ Delete")->action("delete"),
-                Button::make("📖 Mark as Read")->action("read"),
-                Button::make("👀 Open")->url('https://test.it'),
-            ]))->send();
+        $this->reply('asdasdasd');
     }
 }
