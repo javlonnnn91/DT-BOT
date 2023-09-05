@@ -33,15 +33,13 @@ class Handler extends WebhookHandler
     {
         $this->chat->message('Tilni tanlang / Выберите язык')
             ->keyboard(Keyboard::make()->buttons([
-                Button::make("🇺🇿 o`zbek tili ")->action("language")->param('type', 1),
-                Button::make("🇷🇺 русский язык")->action("language")->param('type', 2),
+                Button::make("🇺🇿 o`zbek tili ")->action("language")->param('type', '1'),
+                Button::make("🇷🇺 русский язык")->action("language")->param('type', '2'),
             ])->chunk(2))->send();
     }
 
-    public function language(int $type): void
+    public function language($type): void
     {
-        $this->chat->language_type = $type;
-        $this->chat->save();
         $this->chat->message('send phone number')
             ->replyKeyboard(ReplyKeyboard::make()
                 ->row([
