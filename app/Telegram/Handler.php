@@ -31,10 +31,10 @@ class Handler extends WebhookHandler
     public function actions(): void
     {
         Telegraph::message('Tilni tanlang')
-            ->keyboard(
+            ->Keyboard(
                 Keyboard::make()->buttons([
-                    Button::make('ozbek')->action('language'),
-                    Button::make('rus')->action('language'),
+                    Button::make('ozbek')->url('https://test.it'),
+                    Button::make('rus')->url('https://test.it'),
                 ])
             )->send();
     }
