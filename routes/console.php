@@ -23,7 +23,9 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote');
 
 Artisan::command('tester', function () {
-    $bot = TelegraphBot::fromId(2);
 
-    dd($bot->registerWebhook()->send());
+    $chat = TelegraphChat::find(2);
+    $bot = TelegraphBot::find(1);
+
+    dd($chat->message('hello Cap')->send());
 });
