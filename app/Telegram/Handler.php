@@ -30,7 +30,7 @@ class Handler extends WebhookHandler
 
     public function actions(): void
     {
-        Telegraph::message('Tilni tanlang/Выберите язык')
+        Telegraph::message('Tilni tanlang')
             ->keyboard(
                 Keyboard::make()->buttons([
                     Button::make('ozbek')->action('language'),
