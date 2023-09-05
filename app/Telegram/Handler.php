@@ -6,12 +6,14 @@ use DefStudio\Telegraph\Facades\Telegraph;
 use DefStudio\Telegraph\Handlers\WebhookHandler;
 use DefStudio\Telegraph\Keyboard\ReplyButton;
 use DefStudio\Telegraph\Keyboard\ReplyKeyboard;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Stringable;
 
 class Handler extends WebhookHandler
 {
     public function hello(): void
     {
+        Log::info(json_encode($this->message->toArray(), JSON_UNESCAPED_UNICODE));
         $this->reply('gagagagaag');
     }
 
