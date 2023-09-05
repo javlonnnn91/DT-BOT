@@ -41,11 +41,9 @@ class Handler extends WebhookHandler
     public function phone(): void
     {
         $this->chat->message('send phone number')
-            ->replyKeyboard(ReplyKeyboard::make()
-                ->row([
-                    ReplyButton::make('Send Contact')->requestContact(),
-                ])
-            )->send();
+            ->keyboard(Keyboard::make()->buttons([
+                ReplyButton::make("🇺🇿 o`zbek tili ")->requestContact(),
+            ])->chunk(2))->send();
     }
 
 
