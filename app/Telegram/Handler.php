@@ -33,9 +33,9 @@ class Handler extends WebhookHandler
 
         Telegraph::message('hello world')
             ->keyboard(Keyboard::make()->buttons([
-                Button::make("🗑️ Delete"),
-                Button::make("📖 Mark as Read"),
-                Button::make("👀 Open"),
-            ])->chunk(2))->send();
+                Button::make("🗑️ Delete")->action("delete"),
+                Button::make("📖 Mark as Read")->action("read"),
+                Button::make("👀 Open")->url('https://test.it'),
+            ]))->send();
     }
 }
