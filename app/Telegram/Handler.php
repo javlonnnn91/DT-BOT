@@ -8,6 +8,7 @@ use DefStudio\Telegraph\Keyboard\Button;
 use DefStudio\Telegraph\Keyboard\Keyboard;
 use DefStudio\Telegraph\Keyboard\ReplyButton;
 use DefStudio\Telegraph\Keyboard\ReplyKeyboard;
+use DefStudio\Telegraph\Models\TelegraphChat;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Stringable;
 
@@ -28,8 +29,13 @@ class Handler extends WebhookHandler
         $this->reply($text);
     }
 
-    public function actions(): void
+    public function start(): void
     {
-        $this->reply('asdasda');
+        $this->chat->message('hello world')
+            ->keyboard(Keyboard::make()->buttons([
+                Button::make("🗑️ Delete")->action("delete"),
+                Button::make("📖 Mark as Read")->action("read"),
+                Button::make("👀 Open")->url('https://test.it'),
+            ])->chunk(2))->send();
     }
 }
