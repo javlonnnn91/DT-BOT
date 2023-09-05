@@ -30,13 +30,6 @@ class Handler extends WebhookHandler
 
     public function actions(): void
     {
-        Telegraph::message('hello world')
-            ->keyboard(function(Keyboard $keyboard){
-                return $keyboard
-                    ->button('Delete')->action('delete')->param('id', '42')
-                    ->button('open')->url('https://test.it')
-                    ->button('Web App')->webApp('https://web-app.test.it')
-                    ->button('Login Url')->loginUrl('https://loginUrl.test.it');
-            })->send();
+        $this->reply('asdasda');
     }
 }
