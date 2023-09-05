@@ -29,6 +29,6 @@ class Handler extends WebhookHandler
     public function start(): void
     {
 
-        Telegraph::dice()->send();
+        $this->reply('gagagagaag start');
     }
 }
