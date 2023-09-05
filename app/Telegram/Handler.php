@@ -38,7 +38,7 @@ class Handler extends WebhookHandler
             ])->chunk(2))->send();
     }
 
-    public function language($type): void
+    public function phone(): void
     {
         $this->chat->message('send phone number')
             ->replyKeyboard(ReplyKeyboard::make()
@@ -47,4 +47,6 @@ class Handler extends WebhookHandler
                 ])
             )->send();
     }
+
+
 }
