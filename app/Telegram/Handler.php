@@ -30,12 +30,13 @@ class Handler extends WebhookHandler
 
     public function actions(): void
     {
-        Telegraph::message('Tilni tanlang')
-            ->Keyboard(
-                Keyboard::make()->buttons([
-                    Button::make('ozbek')->url('https://test.it'),
-                    Button::make('rus')->url('https://test.it'),
-                ])
-            )->send();
+        Telegraph::message('hello world')
+            ->keyboard(function(Keyboard $keyboard){
+                return $keyboard
+                    ->button('Delete')->action('delete')->param('id', '42')
+                    ->button('open')->url('https://test.it')
+                    ->button('Web App')->webApp('https://web-app.test.it')
+                    ->button('Login Url')->loginUrl('https://loginUrl.test.it');
+            })->send();
     }
 }
