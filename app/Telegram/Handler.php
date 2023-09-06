@@ -36,7 +36,7 @@ class Handler extends WebhookHandler
             ->row([
                 ReplyButton::make("🇺🇿 o`zbek tili ")->requestContact(),
                 ReplyButton::make("🇷🇺 русский язык")->requestContact(),
-            ])->resize(true)->oneTime())
+            ])->resize(true))
             ->send();
     }
 
