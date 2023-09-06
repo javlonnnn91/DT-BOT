@@ -26,6 +26,13 @@ class Handler extends WebhookHandler
 
     protected function handleChatMessage(Stringable $text): void
     {
+        if($text == "🇺🇿 O‘zbekcha"){
+            $language_type = 1;
+            $this->phone();
+        } elseif ($text == "🇷🇺 Русский"){
+            $language_type = 2;
+            $this->phone();
+        }
         $this->reply($text);
     }
 
@@ -35,8 +42,8 @@ class Handler extends WebhookHandler
 
         $this->chat->html($message)
             ->replyKeyboard(ReplyKeyboard::make()
-                ->button("🇺🇿 o‘zbek")
-                ->button("🇷🇺 русский язык")
+                ->button("🇺🇿 O‘zbekcha")
+                ->button("🇷🇺 Русский")
                 ->chunk(2)
                 ->resize(true))
             ->send();
@@ -52,5 +59,9 @@ class Handler extends WebhookHandler
             ->send();
     }
 
-
+//    public function language(int $language_type): void
+//    {
+//        $this->chat->language_type = $language_type;
+//        $this->chat->save();
+//    }
 }
