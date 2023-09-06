@@ -31,11 +31,13 @@ class Handler extends WebhookHandler
 
     public function start(): void
     {
-        $this->chat->message('Tilni tanlang / Выберите язык')
-            ->keyboard(Keyboard::make()->buttons([
-                Button::make("🇺🇿 o`zbek tili ")->action("phone"),
-                Button::make("🇷🇺 русский язык")->action("phone"),
-            ])->chunk(2))->send();
+        $this->chat->message('Salom! Bizning Botga hush helibsiz! Xizmat ko`rsatish tilini tanlang \n\n Привет! Добро пожаловать в наш бот! Выберите язык обслуживания')
+            ->replyKeyboard(ReplyKeyboard::make()
+            ->row([
+                ReplyButton::make("🇺🇿 o`zbek tili ")->label('uzbek'),
+                ReplyButton::make("🇷🇺 русский язык")->label("russian"),
+            ])->resize(true)->oneTime())
+            ->send();
     }
 
     public function phone(): void
