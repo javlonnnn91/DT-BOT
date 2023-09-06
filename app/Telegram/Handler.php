@@ -31,7 +31,7 @@ class Handler extends WebhookHandler
 
     public function start(): void
     {
-        $message = 'Salom! Bizning Botga hush helibsiz! Xizmat ko`rsatish tilini tanlang';
+        $message = 'Salom! Bizning Botga hush helibsiz! Xizmat korsatish tilini tanlang';
         $this->chat->message($message)
             ->replyKeyboard(ReplyKeyboard::make()
                 ->row([
