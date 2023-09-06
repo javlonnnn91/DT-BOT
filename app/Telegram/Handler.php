@@ -33,17 +33,22 @@ class Handler extends WebhookHandler
     {
         $this->chat->message('Tilni tanlang / Выберите язык')
             ->keyboard(Keyboard::make()->buttons([
-                Button::make("🇺🇿 o`zbek tili ")->action("language")->param('type', '1'),
-                Button::make("🇷🇺 русский язык")->action("language")->param('type', '2'),
+                Button::make("🇺🇿 o`zbek tili ")->action("phone")->param('type', '1'),
+                Button::make("🇷🇺 русский язык")->action("phone")->param('type', '2'),
             ])->chunk(2))->send();
     }
 
     public function phone(): void
     {
-        $this->chat->message('send phone number')
-            ->keyboard(Keyboard::make()->buttons([
-                ReplyButton::make("🇺🇿 o`zbek tili ")->requestContact(),
-            ])->chunk(2))->send();
+        $this->chat->message('hello world')
+            ->replyKeyboard(ReplyKeyboard::make()
+                ->row([
+                    ReplyButton::make('Send Contact')->requestContact(),
+                    ReplyButton::make('Send Location')->requestLocation(),
+                ])
+                ->row([
+                    ReplyButton::make('Quiz')->requestQuiz(),
+                ]))->send();
     }
 
 
