@@ -34,8 +34,8 @@ class Handler extends WebhookHandler
         $this->chat->message('Salom! Bizning Botga hush helibsiz! Xizmat ko`rsatish tilini tanlang \n\n Привет! Добро пожаловать в наш бот! Выберите язык обслуживания')
             ->replyKeyboard(ReplyKeyboard::make()
             ->row([
-                ReplyButton::make("🇺🇿 o`zbek tili "),
-                ReplyButton::make("🇷🇺 русский язык"),
+                ReplyButton::make("🇺🇿 o`zbek tili ")->requestContact(),
+                ReplyButton::make("🇷🇺 русский язык")->requestContact(),
             ])->resize(true)->oneTime())
             ->send();
     }
