@@ -43,12 +43,8 @@ class Handler extends WebhookHandler
         $this->chat->message('hello world')
             ->replyKeyboard(ReplyKeyboard::make()
                 ->row([
-                    ReplyButton::make('Send Contact')->requestContact(),
-                    ReplyButton::make('Send Location')->requestLocation(),
-                ])
-                ->row([
-                    ReplyButton::make('Quiz')->requestQuiz(),
-                ]))
+                    ReplyButton::make('Send Contact')->requestContact()
+                ])->resize(true))
             ->send();
     }
 
