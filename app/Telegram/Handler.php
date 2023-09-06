@@ -36,9 +36,9 @@ class Handler extends WebhookHandler
         $this->chat->html($message)
             ->replyKeyboard(ReplyKeyboard::make()
                 ->row([
-                    ReplyButton::make('Send Contact')->requestContact(),
-                    ReplyButton::make('Send Location')->requestLocation(),
-                ]))
+                    ReplyButton::make("🇺🇿 o`zbek tili")->requestContact(),
+                    ReplyButton::make("🇷🇺 русский язык")->requestLocation(),
+                ])->resize(true))
             ->send();
     }
 
@@ -48,7 +48,7 @@ class Handler extends WebhookHandler
             ->replyKeyboard(ReplyKeyboard::make()
                 ->row([
                     ReplyButton::make('Send Contact')->requestContact()
-                ])->resize(true)->oneTime())
+                ])->resize(true))
             ->send();
     }
 
