@@ -9,6 +9,7 @@ use DefStudio\Telegraph\Keyboard\Keyboard;
 use DefStudio\Telegraph\Keyboard\ReplyButton;
 use DefStudio\Telegraph\Keyboard\ReplyKeyboard;
 use DefStudio\Telegraph\Models\TelegraphChat;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Stringable;
 
@@ -60,9 +61,8 @@ class Handler extends WebhookHandler
             ->send();
     }
 
-//    public function language(int $language_type): void
-//    {
-//        $this->chat->language_type = $language_type;
-//        $this->chat->save();
-//    }
+    public function language(int $language_type): void
+    {
+        DB::update('update telegraph_chats set language_type = '.$language_type.' where chat_id = ?', [$this->chat->chat_id]);
+    }
 }
