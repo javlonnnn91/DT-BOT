@@ -30,11 +30,12 @@ class Handler extends WebhookHandler
         if($text == "🇺🇿 O‘zbekcha"){
             $language_type = 1;
             $this->phone();
+            $this->language($language_type);
         } elseif ($text == "🇷🇺 Русский"){
             $language_type = 2;
             $this->phone();
+            $this->language($language_type);
         }
-        $this->reply($text);
     }
 
     public function start(): void
