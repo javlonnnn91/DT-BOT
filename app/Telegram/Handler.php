@@ -51,7 +51,8 @@ class Handler extends WebhookHandler
 
     public function phone(): void
     {
-        $this->chat->message('hello world')
+        $message = "Ro‘yxatdan o‘tish uchun telefon raqamingizni yuboring.\n\nTelefon raqamni yuborish uchun <b>Telefon raqamni yuborish</b> tugmasini bosing";
+        $this->chat->html($message)
             ->replyKeyboard(ReplyKeyboard::make()
                 ->row([
                     ReplyButton::make('Send Contact')->requestContact()
