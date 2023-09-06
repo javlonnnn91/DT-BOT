@@ -31,12 +31,12 @@ class Handler extends WebhookHandler
 
     public function start(): void
     {
-        $this->chat->message('Salom! Bizning Botga hush helibsiz! Xizmat ko`rsatish tilini tanlang \n\n Привет! Добро пожаловать в наш бот! Выберите язык обслуживания')
+        $this->chat->message('dsfdssf')
             ->replyKeyboard(ReplyKeyboard::make()
-            ->row([
-                ReplyButton::make("🇺🇿 o`zbek tili ")->requestContact(),
-                ReplyButton::make("🇷🇺 русский язык")->requestLocation(),
-            ])->resize(true))
+                ->row([
+                    ReplyButton::make('Send Contact')->requestContact(),
+                    ReplyButton::make('Send Location')->requestLocation(),
+                ]))
             ->send();
     }
 
