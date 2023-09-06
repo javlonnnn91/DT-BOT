@@ -29,7 +29,28 @@ class Handler extends WebhookHandler
         $this->reply($text);
     }
 
+    public function start(): void
+    {
+        $this->chat->message('Tilni tanlang / Выберите язык')
+            ->keyboard(Keyboard::make()->buttons([
+                Button::make("🇺🇿 o`zbek tili ")->action("phone"),
+                Button::make("🇷🇺 русский язык")->action("phone"),
+            ])->chunk(2))->send();
+    }
 
+    public function phone(): void
+    {
+        $this->chat->message('hello world')
+            ->replyKeyboard(ReplyKeyboard::make()
+                ->row([
+                    ReplyButton::make('Send Contact')->requestContact(),
+                    ReplyButton::make('Send Location')->requestLocation(),
+                ])
+                ->row([
+                    ReplyButton::make('Quiz')->requestQuiz(),
+                ]))
+            ->send();
+    }
 
 
 }
