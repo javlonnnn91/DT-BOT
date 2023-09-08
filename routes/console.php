@@ -9,6 +9,8 @@ use DefStudio\Telegraph\Telegraph;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 use DefStudio\Telegraph\Models\TelegraphChat;
+use Illuminate\Support\Facades\Storage;
+
 /*
 |--------------------------------------------------------------------------
 | Console Routes
@@ -26,13 +28,8 @@ Artisan::command('inspire', function () {
 
 Artisan::command('tester', function () {
 
-    $chat = TelegraphChat::find(2);
+    $chat = TelegraphChat::find(1);
     $bot = TelegraphBot::find(1);
-
-    dd($chat->message('hello world')
-        ->keyboard(Keyboard::make()->buttons([
-            Button::make("🗑️ Delete")->action("delete"),
-            Button::make("📖 Mark as Read")->action("read"),
-            Button::make("👀 Open")->url('https://test.it'),
-        ])->chunk(2))->send());
+    $message = "title_uz\n\ntext_uz";
+    dd($chat->photo(Storage::path('tg_bot_1_ru.png'))->html($message)->send());
 });

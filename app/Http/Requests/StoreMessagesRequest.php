@@ -11,9 +11,9 @@ class StoreMessagesRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +21,19 @@ class StoreMessagesRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            //
+            'message_id' => ['required'],
+            'phone_number' => ['required'],
+            'module' => ['required'],
+            'type' => ['required'],
+            'status' => ['required'],
+            'date' => ['required'],
+            'title_uz' => ['required'],
+            'title_ru' => ['required'],
+            'text_uz' => ['required'],
+            'text_ru' => ['required'],
         ];
     }
 }

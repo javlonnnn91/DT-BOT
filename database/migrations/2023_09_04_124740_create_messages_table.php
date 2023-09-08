@@ -11,18 +11,23 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->integer('message_id');
-            $table->text('photo');
+            $table->bigInteger('phone_number');
+            $table->text('photo')->nullable();
             $table->integer('module');
             $table->integer('type');
             $table->integer('status');
             $table->date('date');
-            $table->string('title', 255);
-            $table->text('text');
+            $table->string('title_uz', 255);
+            $table->string('title_ru', 255);
+            $table->string('title_en', 255)->nullable();
+            $table->text('text_uz');
+            $table->text('text_ru');
+            $table->text('text_en')->nullable();
             $table->timestamps();
         });
     }
@@ -32,7 +37,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('messages');
     }
