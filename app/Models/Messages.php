@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property mixed|string|null $title_en
  * @property mixed|string|null $title_ru
  * @property mixed|string|null $title_uz
+ * @property mixed|string|null $link
  */
 class Messages extends Model
 {
@@ -35,7 +36,7 @@ class Messages extends Model
         ];
     }
 
-    public function add(int|null $message_id, int|null $phone_number, string|null $photo, int|null $module, int|null $type, int|null $status, string|null $date, string|null $title_uz, string|null $title_ru, string|null $title_en, string|null $text_uz, string|null $text_ru, string|null $text_en): bool
+    public function add(int|null $message_id, int|null $phone_number, string|null $photo, int|null $module, int|null $type, int|null $status, string|null $date, string|null $title_uz, string|null $title_ru, string|null $title_en, string|null $text_uz, string|null $text_ru, string|null $text_en, string|null $link): bool
     {
         $model = Messages::query()->where('message_id', $message_id)->first();
         if($model){
@@ -55,6 +56,7 @@ class Messages extends Model
             $model->text_uz = $text_uz;
             $model->text_ru = $text_ru;
             $model->text_en = $text_en;
+            $model->link = $link;
             return $model->save() ?? false;
         }
     }

@@ -40,7 +40,7 @@ class MessagesController extends Controller
         $text_en = $request->input(['text_en']);
         $link = $request->input(['link']);
         $messages = new Messages();
-        $messages_add = $messages->add($message_id,$phone_number,$photo,$module,$type,$status,$date,$title_uz,$title_ru,$title_en,$text_uz,$text_ru,$text_en);
+        $messages_add = $messages->add($message_id,$phone_number,$photo,$module,$type,$status,$date,$title_uz,$title_ru,$title_en,$text_uz,$text_ru,$text_en,$link);
         if($messages_add){
             $chat_info = ChatInfo::query()->where('phone_number', $phone_number)->first();
             if($chat_info){

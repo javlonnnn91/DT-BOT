@@ -28,6 +28,7 @@ return new class extends Migration
             $table->text('text_uz');
             $table->text('text_ru');
             $table->text('text_en')->nullable();
+            $table->text('link')->nullable();
             $table->timestamps();
         });
     }
