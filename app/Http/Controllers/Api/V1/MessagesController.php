@@ -54,7 +54,8 @@ class MessagesController extends Controller
                 } else {
                     $message = $title_en."\n\n".$text_en;
                 }
-                $message_last = $messages::moduleLabel()[$module]."\n\n".$message;
+                $type_message = $messages::typeLabel()[$type];
+                $message_last = "<b>".$messages::moduleLabel()[$module]."</b>\n\n".$type_message."\n\n".$message;
                 $chat->html($message_last)
                     ->keyboard(Keyboard::make()->buttons([
                         Button::make("👀 Open")->url($link)

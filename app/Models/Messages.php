@@ -28,11 +28,24 @@ class Messages extends Model
     const MODULE_MARKET = 1;
     const MODULE_FINDOC = 2;
 
+    const TYPE_SIGNED = 1;
+    const TYPE_WAITING = 2;
+    const TYPE_CANCEL = 3;
+
     public static function moduleLabel(): array
     {
         return [
             self::MODULE_MARKET => 'Market',
             self::MODULE_FINDOC => 'FinDoc'
+        ];
+    }
+
+    public static function typeLabel(): array
+    {
+        return [
+            self::TYPE_SIGNED => '🟢 ' . __('app.TYPE_SIGNED'),
+            self::TYPE_WAITING => '🟡 ' . __('app.TYPE_WAITING'),
+            self::TYPE_CANCEL => '🔴 ' . __('app.TYPE_CANCEL')
         ];
     }
 

@@ -12,5 +12,8 @@ return [
     'SELECT_LANGUAGE' => 'Выберите язык обслуживания',
     'CHANGE_LANGUAGE' => 'Изменить язык',
     'SELECT_SETTINGS' => 'Выберите тип настройки',
+    'TYPE_SIGNED' => 'Подписан',
+    'TYPE_WAITING' => 'В ожидании',
+    'TYPE_CANCEL' => 'Отказано',
 
 ];

@@ -12,4 +12,7 @@ Telefon raqamni yuborish uchun <b>☎️ Telefon raqamni yuborish</b> tugmasini 
     'SELECT_LANGUAGE' => 'Xizmat ko‘rsatish tilini tanlang',
     'CHANGE_LANGUAGE' => 'Tilni o‘zgartirish',
     'SELECT_SETTINGS' => 'Sozlama turini tanlang',
+    'TYPE_SIGNED' => 'Imzolandi',
+    'TYPE_WAITING' => 'Kutilmoqda',
+    'TYPE_CANCEL' => 'Rad etildi',
 ];
